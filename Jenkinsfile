@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 pipeline {
+    agent { node { label 'docker' } }
+
     stages {
         stage ('Clean workspace') {
             steps {
