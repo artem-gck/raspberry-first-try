@@ -39,7 +39,7 @@ pipeline {
 
         stage('Clean') {
             steps {
-                bat "msbuild.exe ${workspace}\\First try.sln" /nologo /nr:false /p:platform=\"x64\" /p:configuration=\"release\" /t:clean"
+                bat "msbuild.exe ${workspace}\\First try.sln" /t:Build /p:Configuration=Release"
             }
         }
 
