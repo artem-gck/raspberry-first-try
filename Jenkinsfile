@@ -23,13 +23,13 @@ pipeline {
 
         stage('Clean') {
             steps {
-                bat "msbuild.exe \"${workspace}\\First try.sln\" /nologo /nr:false /p:platform=\"x64\" /p:configuration=\"release\" /t:clean"
+                bat "dotnet clean \"${workspace}\\First try.sln\""
             }
         }
 
         stage('Build') {
             steps {
-                bat "msbuild.exe \"${workspace}\\First try.sln\" /nologo /nr:false  /p:platform=\"x64\" /p:configuration=\"release\" /t:clean;restore;rebuild"
+                bat "dotnet build \"${workspace}\\First try.sln\" --nologo -c Release /p:Platform=x64"
             }
         }
     }
