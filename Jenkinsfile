@@ -17,7 +17,7 @@ pipeline {
 
         stage('Restore packages') {
             steps {
-                bat "dotnet restore ${workspace}\\First try.sln"
+                bat "dotnet restore \"${workspace}\\First try.sln\""
             }
         }
 
