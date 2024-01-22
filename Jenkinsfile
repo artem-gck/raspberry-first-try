@@ -29,7 +29,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat "dotnet build \"${workspace}\\First try.sln\" --nologo -c Release /p:Platform=x64"
+                bat "dotnet build \"${workspace}\\First try.sln\" --nologo -c Release /p:Platform=\"Any CPU\""
             }
         }
     }
