@@ -39,13 +39,13 @@ pipeline {
 
         stage('Clean') {
             steps {
-                bat "msbuild.exe ${workspace}\\First try.sln" /t:Build /p:Configuration=Release"
+                bat "msbuild.exe \"${workspace}\\First try.sln\" /nologo /nr:false /p:platform=\"x64\" /p:configuration=\"release\" /t:clean"
             }
         }
 
         stage('Build') {
             steps {
-                bat "msbuild.exe ${workspace}\\First try.sln /nologo /nr:false  /p:platform=\"x64\" /p:configuration=\"release\" /t:clean;restore;rebuild"
+                bat "msbuild.exe \"${workspace}\\First try.sln\" /nologo /nr:false  /p:platform=\"x64\" /p:configuration=\"release\" /t:clean;restore;rebuild"
             }
         }
     }
